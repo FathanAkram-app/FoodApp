@@ -37,6 +37,7 @@ struct Menu: View {
                     .foregroundColor(.black)
                 Spacer()
                 
+                
             }.padding()
                 
             
@@ -75,8 +76,23 @@ struct Menu: View {
 //                }
                 
             }
-            Text("Total : $\(countTotal())")
+            HStack{
+                Text("Total : $\(countTotal())")
+                Spacer()
+                Button(action: {
+                    
+                }, label: {
+                    Text("Order")
+                        .font(.caption)
+                        .foregroundColor(.white)
+                        .padding(6)
+                        .background(countTotal() > 0 ? Color.green : Color.gray)
+                        .cornerRadius(4)
+                }).disabled(countTotal() > 0 ? false : true)
+            }
+            .padding()
             Divider()
+            
             HStack{
                 Spacer()
                 
